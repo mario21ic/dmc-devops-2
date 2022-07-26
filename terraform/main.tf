@@ -62,7 +62,8 @@ resource "aws_security_group" "jenkins_sg" {
 
 resource "aws_instance" "ec2_jenkins" {
   //ami                    = "ami-094f35ba45e1be4e8" # prev
-  ami                    = "ami-02f3416038bdb17fb" # Ubuntu 20.04
+  //ami                    = "ami-02f3416038bdb17fb" # Ubuntu 20.04
+  ami                    = "ami-03f94ff9a7a60bba4" # jenkins
   instance_type          = "t2.micro"
   key_name               = var.key_name
   vpc_security_group_ids = ["${aws_security_group.jenkins_sg.id}"]
@@ -75,6 +76,7 @@ resource "aws_instance" "ec2_jenkins" {
   }
 
   // Install jenkins and docker
+  /*
   connection {
       host      = self.public_ip
       user      = "ubuntu"
@@ -101,4 +103,6 @@ resource "aws_instance" "ec2_jenkins" {
       "sudo cat /var/lib/jenkins/secrets/initialAdminPassword"
     ]
   }
+  */
+
 }

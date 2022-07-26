@@ -25,7 +25,6 @@ region: us-east-2
 ### Infrastructure as Code:
 ```
 cd terraform/
-cp ~/Downloads/Alo2.pem ./
 # De ser necesario CAMBIAR los valores como name en terraform.tfvars
 ./terraform_apply.sh
 ```
