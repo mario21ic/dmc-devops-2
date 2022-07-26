@@ -18,5 +18,5 @@ output "ec2_instance_policy_name" {
 }
 
 output "ec2_instance_public_ip" {
-  value = module.codedeploy.ec2_instance_public_ip
+  value = module.ec2.ec2_instance_public_ip
 }

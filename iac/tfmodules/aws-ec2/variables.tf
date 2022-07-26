@@ -9,7 +9,14 @@ variable "env" {
 }
 
 variable "name" {
-  description = "Name codedeploy"
+  description = "Name ec2"
+}
+
+variable "key_name" {
+  description = "key pair name"
+}
+
+variable "instance_profile" {
 }
 
 variable "ec2_filter_value" {

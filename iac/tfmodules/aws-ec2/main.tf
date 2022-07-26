@@ -1,3 +1,8 @@
+locals {
+  //command = "aws ssm start-session --target ${aws_instance.proxy.id} --region ${var.region}"
+  name_prefix = "${var.env}-${var.name}"
+}
+
 data "aws_ami" "amazonv2" {
   most_recent = true
 
@@ -17,10 +22,11 @@ data "aws_ami" "amazonv2" {
 resource "aws_instance" "ec2_draft" {
   ami                    = "${data.aws_ami.amazonv2.id}"
   instance_type          = "t2.nano"
-  key_name               = "${var.ec2_key}"
+  key_name               = "${var.key_name}"
   vpc_security_group_ids = ["${aws_security_group.sg_draft.id}"]
   associate_public_ip_address = true
-  iam_instance_profile = "${aws_iam_instance_profile.instance_profile.id}"
+  //iam_instance_profile = "${aws_iam_instance_profile.instance_profile.id}"
+  iam_instance_profile = "${var.instance_profile}"
 
   #count = 3
   count = 1
@@ -30,6 +36,30 @@ resource "aws_instance" "ec2_draft" {
     cd_ec2_tag  = var.ec2_filter_value
     Enviroment  = "${var.env}"
     Description = "Server application"
+  }
+
+  // Install nginx and aws codedeploy
+  connection {
+      host      = self.public_ip
+      user      = "ec2-user"
+      type      = "ssh"
+      //private_key = "${file("${var.key_name}")}"
+      //private_key = file("./Alo2.pem")
+      //private_key = file("${path.root}/Alo2.pem")
+      private_key = file("${path.root}/${var.key_name}.pem")
+      timeout   = "2m"
+  }
+  provisioner "remote-exec" {
+    inline = [
+      "export PATH=$PATH:/usr/bin",
+      "sudo yum install ruby wget -y",
+      "wget https://aws-codedeploy-us-east-2.s3.us-east-2.amazonaws.com/latest/install",
+      "chmod +x install",
+      "sudo ./install auto",
+      "sudo amazon-linux-extras install nginx1 -y",
+      "sudo systemctl start nginx",
+      "sudo systemctl enable nginx"
+    ]
   }
 }
 
@@ -63,3 +93,4 @@ resource "aws_security_group" "sg_draft" {
     Description = "Server application security group"
   }
 }
+
