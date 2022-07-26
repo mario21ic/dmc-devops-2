@@ -1,0 +1,6 @@
+region                = "us-east-2"
+env                   = "draft"
+name                  = "demo2"
+ec2_key               = "Alo2"
+//ec2_filter_key        = "Name"
+ec2_filter_value      = "draft-demo"
