@@ -4,6 +4,16 @@ Requisitos:
 - Terraform 1.2.2
 - Aws cli
 
+Instalar dependencias:
+```
+wget https://releases.hashicorp.com/terraform/1.2.5/terraform_1.2.5_linux_amd64.zip -O terraform.zip
+unzip terraform.zip
+sudo mv terraform
+sudo mv ./terraform /usr/local/bin/
+
+sudo apt install awscli -y
+```
+
 Configurar:
 ```
 $ aws configure
