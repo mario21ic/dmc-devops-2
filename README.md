@@ -15,12 +15,14 @@ region: us-east-2
 ### Infrastructure as Code:
 ```
 cd terraform/
-terraform init
-terraform init -upgrade # for plugins and modules
-
 cp ~/Downloads/Alo2.pem ./
-# De ser necesario cambiar los valores terraform.tfvars
-terraform apply
+# De ser necesario CAMBIAR los valores como name en terraform.tfvars
+./terraform_apply.sh
+```
+
+Para eliminar:
+```
+./terraform_destroy.sh
 ```
 
 ### Deploy from localhost:
