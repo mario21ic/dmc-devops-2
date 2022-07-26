@@ -19,7 +19,7 @@ terraform init
 terraform init -upgrade # for plugins and modules
 
 cp ~/Downloads/Alo2.pem ./
-# cambiar 
+# De ser necesario cambiar los valores terraform.tfvars
 terraform apply
 ```
 
