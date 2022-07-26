@@ -14,7 +14,7 @@ region: us-east-2
 
 ### Infrastructure as Code:
 ```
-cd iac
+cd terraform/
 terraform init
 terraform init -upgrade # for plugins and modules
 
