@@ -7,11 +7,9 @@ module "codedeploy" {
   source                = "./tfmodules/aws-codedeploy"
 
   region                = "${var.region}"
-  //env                   = "${terraform.workspace}"
   env                   = var.env
   name                  = var.name
 
-  //ec2_filter_value      = "${terraform.workspace}-demo"
   ec2_filter_value      = "${var.env}-${var.name}-123"
 }
 
@@ -20,14 +18,11 @@ module "ec2" {
   depends_on            = [module.codedeploy]
 
   region                = "${var.region}"
-  //env                   = "${terraform.workspace}"
   env                   = var.env
   name                  = var.name
   key_name              = var.key_name
   instance_profile      = "${module.codedeploy.ec2_instance_profile_id}"
 
-  //ec2_filter_key        = "Name"
-  //ec2_filter_value      = "${terraform.workspace}-demo"
   ec2_filter_value      = "${var.env}-${var.name}-123"
 }
 
@@ -72,8 +67,6 @@ resource "aws_instance" "ec2_jenkins" {
   key_name               = var.key_name
   vpc_security_group_ids = ["${aws_security_group.jenkins_sg.id}"]
   associate_public_ip_address = true
-  //iam_instance_profile = "${var.instance_profile}"
-  //count = 1
 
   tags = {
     Name        = "${var.env}-${var.name}-jenkins"
