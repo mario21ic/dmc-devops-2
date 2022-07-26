@@ -104,6 +104,7 @@ resource "aws_instance" "ec2_jenkins" {
       "sudo usermod -aG docker jenkins",
       "sudo systemctl restart jenkins",
       "sudo systemctl enable jenkins",
+      "echo JENKINS PASSWORD",
       "sudo cat /var/lib/jenkins/secrets/initialAdminPassword"
     ]
   }
