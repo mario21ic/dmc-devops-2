@@ -2,4 +2,4 @@
 
 terraform init
 #terraform init -upgrade # for plugins and modules
-terraform apply
+terraform apply -auto-approve
