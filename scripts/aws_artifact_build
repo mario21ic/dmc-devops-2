@@ -4,4 +4,4 @@
 # ./scripts/aws_artifact_build <build number>
 # ./scripts/aws_artifact_build 7
 
-zip -r $1 ./ -x ./.git/**\* -x ./log/**\* -x ./logs/**\*
+zip -r $1 ./ -x ./.git/**\* -x ./log/**\* -x ./logs/**\* -x ./terraform/**\*

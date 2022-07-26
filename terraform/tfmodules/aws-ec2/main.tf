@@ -32,7 +32,7 @@ resource "aws_instance" "ec2_draft" {
   count = 1
 
   tags = {
-    Name        = "${local.name_prefix}-ec2"
+    Name        = "${local.name_prefix}-deploy-ec2"
     cd_ec2_tag  = var.ec2_filter_value
     Enviroment  = "${var.env}"
     Description = "Server application"
@@ -64,7 +64,7 @@ resource "aws_instance" "ec2_draft" {
 }
 
 resource "aws_security_group" "sg_draft" {
-  name        = "${local.name_prefix}-sg"
+  name        = "${local.name_prefix}-deploy-sg"
   description = "Server application inbound and outbound"
 
   ingress {

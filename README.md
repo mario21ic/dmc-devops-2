@@ -1,9 +1,25 @@
 # dmc-codedeploy
 
+Requisitos:
+- Terraform 1.2.2
+- Aws cli
+
+Configurar:
+```
+$ aws configure
+aws credentials:
+aws access:
+region: us-east-2
+```
+
 ### Infrastructure as Code:
 ```
 cd iac
 terraform init
+terraform init -upgrade # for plugins and modules
+
+cp ~/Downloads/Alo2.pem ./
+# cambiar 
 terraform apply
 ```
 
