@@ -58,7 +58,12 @@ resource "aws_instance" "ec2_draft" {
       "sudo ./install auto",
       "sudo amazon-linux-extras install nginx1 -y",
       "sudo systemctl start nginx",
-      "sudo systemctl enable nginx"
+      "sudo systemctl enable nginx",
+      "sudo yum install docker -y",
+      "sudo pip3 install docker-compose",
+      "sudo usermod -aG docker ec2-user",
+      "sudo systemctl start docker",
+      "sudo systemctl enable docker"
     ]
   }
 }
