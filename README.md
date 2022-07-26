@@ -7,18 +7,6 @@ terraform init
 terraform apply
 ```
 
-### EC2: install Aws Codedeploy agent:
-```
-sudo yum install ruby -y
-wget https://aws-codedeploy-us-east-2.s3.us-east-2.amazonaws.com/latest/install
-chmod +x install
-sudo ./install auto
-
-sudo amazon-linux-extras install nginx1 -y
-sudo service nginx start
-sudo systemctl enable nginx
-```
-
 ### Deploy from localhost:
 ```
 ./scripts/aws_artifact_build 4
