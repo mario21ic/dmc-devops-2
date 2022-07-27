@@ -1,14 +1,18 @@
 # dmc-codedeploy
 
 Requisitos:
+- Packer 1.7.4
 - Terraform 1.2.2
 - Aws cli
 
-Instalar dependencias:
+Instalar Dependencias:
 ```
+wget https://releases.hashicorp.com/packer/1.8.2/packer_1.8.2_linux_amd64.zip -O packer.zip
+unzip packer.zip
+sudo mv packer /usr/local/bin/
+
 wget https://releases.hashicorp.com/terraform/1.2.5/terraform_1.2.5_linux_amd64.zip -O terraform.zip
 unzip terraform.zip
-sudo mv terraform
 sudo mv ./terraform /usr/local/bin/
 
 sudo apt install awscli -y
@@ -20,6 +24,17 @@ $ aws configure
 aws credentials:
 aws access:
 region: us-east-2
+```
+
+### Aws Ami:
+```
+cd packer/nginx/
+./build.sh
+# Anotar el ami id para usar en terraform
+
+cd packer/jenkins/
+./build.sh
+# Anotar el ami id para usar en terraform
 ```
 
 ### Infrastructure as Code:
