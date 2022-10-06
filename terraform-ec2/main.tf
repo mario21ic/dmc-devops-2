@@ -3,22 +3,6 @@ locals {
   name_prefix = "${var.env}-${var.name}"
 }
 
-data "aws_ami" "amazonv2" {
-  most_recent = true
-
-  filter {
-    name   = "name"
-    values = ["amzn2-ami-hvm*"]
-  }
-
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
-  }
-
-  owners = ["amazon"]
-}
-
 data "aws_ami" "ubuntu2204" {
   most_recent = true
 
@@ -36,7 +20,6 @@ data "aws_ami" "ubuntu2204" {
 }
 
 resource "aws_instance" "ec2_draft" {
-  //ami                    = "${data.aws_ami.amazonv2.id}"
   ami                    = "${data.aws_ami.ubuntu2204.id}"
   instance_type          = "t2.nano"
   key_name               = "${var.key_name}"
