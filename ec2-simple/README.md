@@ -5,7 +5,7 @@ aws configure
 ```
 
 2. Modificar el keypair en el archivo variables.tf linea 17
-3. Modificar el nro de instancias a crear en variables.tf linea 22
+3. Modificar el nro de instancias a crear, asi como tipo de instance en variables.tf linea 28 y 23
 4. Inicializar y hacer un plan:
 ```
 terraform init

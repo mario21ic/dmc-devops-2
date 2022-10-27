@@ -18,6 +18,12 @@ variable "key_name" {
   description = "key pair name"
 }
 
+variable "ec2_type" {
+  //default = "t3.nano"
+  default = "t3.medium"
+  description = "ec2 instance type"
+}
+
 variable "cantidad" {
   default = 1
   description = "number of instances"

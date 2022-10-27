@@ -21,7 +21,7 @@ data "aws_ami" "ubuntu2204" {
 
 resource "aws_instance" "ec2_draft" {
   ami                    = "${data.aws_ami.ubuntu2204.id}"
-  instance_type          = "t2.nano"
+  instance_type          = "${var.ec2_type}"
   key_name               = "${var.key_name}"
   vpc_security_group_ids = ["${aws_security_group.sg_draft.id}"]
   associate_public_ip_address = true
