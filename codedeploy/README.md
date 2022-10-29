@@ -49,6 +49,15 @@ Para eliminar:
 ./terraform_destroy.sh
 ```
 
+Instalar para TODOS los recursos de los alumnos:
+```
+./instalar_todos.sh
+```
+Remover todos los recursos de los alumnos:
+```
+./remover_todos.sh
+```
+
 ### Deploy from localhost:
 ```
 ./scripts/aws_artifact_build 4

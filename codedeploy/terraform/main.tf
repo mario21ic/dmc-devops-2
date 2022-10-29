@@ -13,6 +13,7 @@ module "codedeploy" {
   ec2_filter_value      = "${var.env}-${var.name}-123"
 }
 
+// Nginx
 module "ec2" {
   source                = "./tfmodules/aws-ec2"
   depends_on            = [module.codedeploy]
@@ -63,7 +64,7 @@ resource "aws_security_group" "jenkins_sg" {
 resource "aws_instance" "ec2_jenkins" {
   //ami                    = "ami-094f35ba45e1be4e8" # prev
   //ami                    = "ami-02f3416038bdb17fb" # Ubuntu 20.04
-  ami                    = "ami-03f94ff9a7a60bba4" # jenkins
+  ami                    = "ami-0a83a15b8d4cd4e25" # jenkins
   instance_type          = "t2.micro"
   key_name               = var.key_name
   vpc_security_group_ids = ["${aws_security_group.jenkins_sg.id}"]

@@ -23,7 +23,8 @@ data "aws_ami" "amazonv2" {
 
 resource "aws_instance" "ec2_draft" {
   //ami                    = "${data.aws_ami.amazonv2.id}"
-  ami                    = "ami-05945033185f92a49" # amazon2 nginx and docker
+  //ami                    = "ami-05945033185f92a49" # amazon2 nginx and docker
+  ami                    = "ami-07ee7b5f23f083883" # amazon2 nginx and docker
   instance_type          = "t2.nano"
   key_name               = "${var.key_name}"
   vpc_security_group_ids = ["${aws_security_group.sg_draft.id}"]
