@@ -1,5 +1,5 @@
-region  = "us-east-2"
+region  = "us-west-2"
 env     = "devops"
-name    = "demo3"
+name    = "edi2"
 key_name = "Alo2"
 

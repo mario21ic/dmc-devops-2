@@ -1,6 +1,6 @@
 variable "aws_region" {
   type    = string
-  default = "us-east-2"
+  default = "us-west-2"
 }
 
 
@@ -36,7 +36,7 @@ build {
   provisioner "shell" {
     inline = [
       "sudo yum install ruby wget -y",
-      "wget https://aws-codedeploy-us-east-2.s3.us-east-2.amazonaws.com/latest/install",
+      "wget https://aws-codedeploy-us-west-2.s3.us-west-2.amazonaws.com/latest/install",
       "chmod +x install",
       "sudo ./install auto",
       "sudo amazon-linux-extras install nginx1 -y",

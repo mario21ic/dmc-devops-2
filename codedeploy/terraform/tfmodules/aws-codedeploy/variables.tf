@@ -1,6 +1,6 @@
 variable "region" {
   description = "aws region"
-  default     = "us-east-2"
+  default     = "us-west-2"
 }
 
 variable "env" {
