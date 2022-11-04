@@ -62,8 +62,8 @@ Para remover todos los recursos de los alumnos:
 ### Deploy from localhost:
 ```
 ./scripts/aws_artifact_build 4
-./scripts/aws_artifact_upload dmc-devops-code mario 4.zip
-./scripts/aws_codedeploy_deployment draft-demo3-cd draft-demo3-dg dmc-devops-code mario 4.zip
+./scripts/aws_artifact_upload dmc-devops-2 mario 4.zip
+./scripts/aws_codedeploy_deployment devops-edi2-cd devops-edi2-dg dmc-devops-2 mario 4.zip
 ```
 
 ### Deploy from Jenkins:
