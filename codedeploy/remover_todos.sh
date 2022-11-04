@@ -8,7 +8,7 @@ array=( alumno1 alumno2 alumno3 alumno4 alumno5 alumno6 alumno7 alumno8 alumno9 
 for alumno in "${array[@]}"
 do
     echo "######### $alumno"
-    cd $alumno/codedeploy/terraform
+    cd $alumno/codedeploy/iac
     terraform destroy -var="name=$alumno" -auto-approve
     read  -n 1 -p "Revisar si los recursos de $alumno fueron eliminados. Presionar ENTER para continuar" rpta
     echo $rpta

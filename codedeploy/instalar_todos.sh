@@ -10,7 +10,7 @@ for alumno in "${array[@]}"
 do
     echo "######### $alumno"
     git clone https://github.com/mario21ic/dmc-devops-2.git $alumno
-    cd $alumno/codedeploy/terraform
+    cd $alumno/codedeploy/iac
     #cp ~/Alo2.pem ./
     terraform init
     terraform apply -var="name=$alumno" -auto-approve
