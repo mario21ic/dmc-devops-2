@@ -23,8 +23,7 @@ data "aws_ami" "amazonv2" {
 
 resource "aws_instance" "ec2_draft" {
   //ami                    = "${data.aws_ami.amazonv2.id}"
-  //ami                    = "ami-05945033185f92a49" # amazon2 nginx and docker
-  ami                    = "ami-07ee7b5f23f083883" # amazon2 nginx and docker
+  ami                    = "${var.ami_id}"
   instance_type          = "t2.nano"
   key_name               = "${var.key_name}"
   vpc_security_group_ids = ["${aws_security_group.sg_draft.id}"]
@@ -81,6 +80,20 @@ resource "aws_security_group" "sg_draft" {
   ingress {
     from_port   = 22
     to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 5000
+    to_port     = 5000
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  ingress {
+    from_port   = 8080
+    to_port     = 8080
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }

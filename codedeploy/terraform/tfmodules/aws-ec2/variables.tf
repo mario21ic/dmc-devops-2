@@ -15,6 +15,9 @@ variable "name" {
 variable "key_name" {
   description = "key pair name"
 }
+variable "ami_id" {
+  description = "ami id"
+}
 
 variable "instance_profile" {
 }

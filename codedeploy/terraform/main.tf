@@ -20,6 +20,7 @@ module "ec2" {
 
   region                = "${var.region}"
   env                   = var.env
+  ami_id                = var.nginx_ami_id
   name                  = var.name
   key_name              = var.key_name
   instance_profile      = "${module.codedeploy.ec2_instance_profile_id}"
@@ -48,6 +49,13 @@ resource "aws_security_group" "jenkins_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
@@ -64,7 +72,7 @@ resource "aws_security_group" "jenkins_sg" {
 resource "aws_instance" "ec2_jenkins" {
   //ami                    = "ami-094f35ba45e1be4e8" # prev
   //ami                    = "ami-02f3416038bdb17fb" # Ubuntu 20.04
-  ami                    = "ami-0a83a15b8d4cd4e25" # jenkins
+  ami                    = var.jenkins_ami_id
   instance_type          = "t2.micro"
   key_name               = var.key_name
   vpc_security_group_ids = ["${aws_security_group.jenkins_sg.id}"]
