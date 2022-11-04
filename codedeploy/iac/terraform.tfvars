@@ -1,5 +1,5 @@
 region  = "us-west-2"
-env     = "devops"
+env     = "dmc2"
 name    = "edi2"
 key_name = "Alo2"
 # TODO
