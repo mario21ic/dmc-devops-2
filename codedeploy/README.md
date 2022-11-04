@@ -28,18 +28,18 @@ region: us-east-2
 
 ### Aws Ami:
 ```
-cd packer/nginx/
+cd amis/nginx/
 ./build.sh
 # Anotar el ami id para usar en terraform
 
-cd packer/jenkins/
+cd amis/jenkins/
 ./build.sh
 # Anotar el ami id para usar en terraform
 ```
 
 ### Infrastructure as Code:
 ```
-cd terraform/
+cd iac/
 # De ser necesario CAMBIAR los valores como name en terraform.tfvars
 ./terraform_apply.sh
 ```
@@ -53,7 +53,8 @@ Instalar para TODOS los recursos de los alumnos:
 ```
 ./instalar_todos.sh
 ```
-Remover todos los recursos de los alumnos:
+Se creara una carpeta por cada alumno.
+Para remover todos los recursos de los alumnos:
 ```
 ./remover_todos.sh
 ```
